@@ -23,13 +23,13 @@ class CommentForm(FlaskForm):
 # creates the login form with the fields required for a user to log in 
 class LoginForm(FlaskForm):
     user_name = StringField('User Name', validators=[InputRequired('Enter user name')])
-    password = StringField('Password', validators=[InputRequired('Enter user password')])
+    password = PasswordField('Password', validators=[InputRequired('Enter user password')])
     submit = SubmitField("Login")
 
 # creates the register form that has required fields for the user to create an account
 class RegisterForm(FlaskForm):
     user_name = StringField('User Name', validators=[InputRequired('Enter user name')])
     email_id = StringField("Email Address", validators=[Email("Please enter a valid email address")])
-    password = StringField('Password', validators=[InputRequired(), EqualTo('confirm', message="Passwords should match")])
+    password = PasswordField('Password', validators=[InputRequired(), EqualTo('confirm', message="Passwords should match")])
     confirm = PasswordField("Confirm Password")
     submit = SubmitField("Register")

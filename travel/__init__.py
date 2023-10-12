@@ -25,7 +25,7 @@ def create_app():
 
     # initialise the login manager
     login_manager = LoginManager()
-    login_manager.login_view = 'auth_login'
+    login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
     # create a user loader function takes userid and returns User
