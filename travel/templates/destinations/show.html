@@ -3,7 +3,8 @@
 {% from 'bootstrap5/form.html' import render_form %}
 
 {% block content %}
-
+<!-- Uses the information the function retrieves from the database to display specific information in HTML -->
+<!-- displays the destination name and the currency conversion in AUD -->
 <div class="container">  
     <div class="row mt-5 mb-3">  
       <div class="col-md-12">  
@@ -19,7 +20,7 @@
       </div>  
     </div>  
  
-    <!-- Destination --> 
+    <!-- displays the destination image, name, and description --> 
     <div class="row">  
       <div class="col-md-12">  
         <div class="card my-3">  
@@ -38,18 +39,21 @@
       </div>  
     </div>
     <hr>
-    <!-- Comments -->  
+
+    <!-- Displays the comments made by users on this destination -->  
     <div class="row">  
       <div class="col-md-12">  
         <h2>Comments</h2>  
       </div>  
     </div>   
 
+  <!-- for loop runs through database to display all comments if they exits -->
+  <!-- Shows commenter name, the comment itself, and post date -->
   <div class="row border-bottom">  
     {{render_form(form, "/destinations/{0}/comment".format(destination.id))}}
     {% for comment in destination.comments %}
     <div class="col-md-12">  
-      <b>{{comment.user.name}} <span class="ml-2 text-muted">January 2024</span></b>
+      <b>Posted By: {{comment.user.name}} <span class="ml-2 text-muted">On: {{comment.created_at}}</span></b>
       <p>{{comment.text}}</p>  
     </div> 
     {% endfor %} 

@@ -1,6 +1,7 @@
 <html>
 
 <head>
+   <!-- defines some features such as scaling, character sets, and adds bootstrap functionality that can be used in every page -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>My Travel App</title>
@@ -10,14 +11,14 @@
 </head>
 
 <body>
-   <!-- Header -->
+   <!-- create the header field to contain all the information -->
    <header class="bg-light border-bottom">
 
-      <!-- Navbar -->
+      <!-- createt the class that will determine navbar look and contain the elements inside it -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <div class="container">
 
-            <!-- Your Travel App Name or Logo -->
+            <!-- website information and image -->
             <a href="/" class="navbar-brand">My Travel App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -25,8 +26,8 @@
                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navbar -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <!-- navigation bar that displays on every page -->
+            <div class="collapse navbar-collapse justify-content-end" id="baseNavbar">
                <div class="navbar-nav ml-auto">
                   {% if current_user.is_authenticated %}
                      <a class="nav-item nav-link text-muted" href="#">Welcome {{current_user.name}}</a>
@@ -35,7 +36,6 @@
                      <a class="nav-item nav-link text-muted" href="{{url_for('auth.register')}}">Register</a>
                      <a class="nav-item nav-link text-muted" href="{{url_for('auth.login')}}">Log In</a>
                   {% endif %}
-
                   <a class="nav-item nav-link" href="#">Destinations</a>
                   <a class="nav-item nav-link" href="#">Bookings</a>
                </div>
@@ -43,11 +43,12 @@
          </div>
       </nav>
 
+      <!-- The block header will contain information that templates will use to display content -->
       {% block header %}
       {% endblock %}
 
    </header>
-   
+   <!-- The block content does the same as block header but allows for seperation in entity display -->
      {% block content %}
      {% endblock %}
 

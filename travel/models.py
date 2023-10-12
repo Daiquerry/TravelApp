@@ -4,6 +4,9 @@ from flask_login import UserMixin
 
 
 
+# the following create the sqlite tables and their data fields
+# the database is created with python commands and acts as a standard sqlite database would
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
